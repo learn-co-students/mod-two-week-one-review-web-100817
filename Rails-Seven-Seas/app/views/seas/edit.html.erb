@@ -1,28 +1,19 @@
-<%= form_for @sea do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
+  <%= render "form", sea: @sea %>
 
-  <%= f.label :temperature %>
-  <%= f.number_field :temperature %>
-
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
-
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-
-  <%= f.label :mood %>
-  <%= f.text_field :mood %>
-
-  <%= f.label :favorite_color %>
-  <%= f.text_field :favorite_color %>
-
-  <%= f.label :scariest_creature %>
-  <%= f.text_field :scariest_creature %>
-
-  <%= f.label :has_mermaids %>
-  <%= f.check_box :has_mermaids %>
-
-  <%=  f.submit %>
-
-  <% end %>
+  <div class="text-center row" style="margin: 1em">
+    <div class="col-sm-1">
+      <button class="btn btn-info" style="margin: 0 auto"><a href="/seas/<%=@sea.id%>">Back</a></button>
+    </div>
+    <div class="col-sm-1">
+    <button class="btn btn-info" style="margin: 0 auto"><a class="btn-info" href="/seas">All Seas</a></button>
+    </div>
+    <div class="col-sm-9">
+    </div>
+    <div class="col-sm-1">
+    <form action="/seas/<%=@sea.id%>/delete" method="post" style="margin: 0 auto">
+        <input class="btn btn-danger" type="submit" value="Delete"/>
+    </form>
+    </div>
+  </div>
+</div>
